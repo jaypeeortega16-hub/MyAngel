@@ -1,10 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Angel</title>
-</head>
-<body>
-    <h1>Hello! Welcome to My Angel 💗</h1>
-    <p>My website is working!</p>
-</body>
-</html>
+@page
+@model IndexModel
+
+<div class="text-center">
+
+    <h1 id="question">
+        Can I be the reason behind your SMILE? ❤️
+    </h1>
+
+    <video id="video" width="350" autoplay muted loop>
+        <source src="/vid.mp4" type="video/mp4">
+    </video>
+
+    <br><br>
+
+    <button id="yesBtn">Yes ❤️</button>
+
+    <button id="noBtn">No 😭</button>
+
+</div>
+
+<script>
+
+    let count = 0;
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const question = document.getElementById("question");
+
+    noBtn.addEventListener("click", function() {
+
+        count++;
+
+        const messages = [
+            "Sure ka? 😭",
+            "Sigurado ka? 😭",
+            "Please? 🥺",
+            "Sige na. ❤️"
+        ];
+
+        if (count <= messages.length) {
+            noBtn.innerText = messages[count - 1];
+        }
+
+        yesBtn.style.fontSize = (16 + count * 8) + "px";
+
+        if (count >= messages.length) {
+            noBtn.style.display = "none";
+        }
+
+    });
+
+    yesBtn.addEventListener("click", function() {
+
+        question.innerText =
+            "Your smile is my favorite thing in the world. 🥰";
+
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+
+    });
+
+</script>
